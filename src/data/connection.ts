@@ -1,4 +1,5 @@
 import mongoose from "mongoose";
+require('dotenv').config();
 
 require('dotenv').config();
 
