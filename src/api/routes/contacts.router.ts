@@ -1,5 +1,5 @@
 import express from 'express';
-import { users } from '../../data/users.model';
+import { contacts } from '../../data/contacts.model';
 let router = express.Router();
 
 export default router;
@@ -8,8 +8,8 @@ export default router;
 //Find: obtiene todos los elementos de la collecion tasks
 router.get('/', async (req, res, next) => {
     try {
-        let usersElements = await users.find(req.query).exec();
-        res.json(usersElements);
+        let contactsElements = await contacts.find(req.query).exec();
+        res.json(contactsElements);
     } catch (error) {
         next(error);
     }
@@ -18,12 +18,12 @@ router.get('/', async (req, res, next) => {
 //FindOne
 router.get('/:id', async (req, res, next) => {
     try {
-        let userElement = await users
+        let contactsElements = await contacts
             .findOne({
                 _id: req.params.id,
             })
             .exec();
-        res.json(userElement);
+        res.json(contactsElements);
     } catch (error) {
         next(error);
     }
@@ -32,8 +32,8 @@ router.get('/:id', async (req, res, next) => {
 //Create
 router.post('/', async (req, res, next) => {
     try {
-        let userElement = await users.create(req.body);
-        res.status(201).json(userElement);    
+        let contactsElements = await contacts.create(req.body);
+        res.status(201).json(contactsElements);    
     } catch (error) {
         next(error);
     }
@@ -42,7 +42,7 @@ router.post('/', async (req, res, next) => {
 //UpdateOne
 router.put('/:id', async (req, res, next) => {
     try {
-        await users.updateOne({
+        await contacts.updateOne({
             _id: req.params.id
         },req.body).exec();
         res.sendStatus(200);
@@ -55,7 +55,7 @@ router.put('/:id', async (req, res, next) => {
 //Delete
 router.delete('/:id', async (req, res, next) => {
     try {
-        await users.deleteOne({
+        await contacts.deleteOne({
             _id: req.params.id
         }).exec();
         res.sendStatus(200);

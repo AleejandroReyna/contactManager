@@ -1,0 +1,6 @@
+
+        ##################
+        /contacts/
+        24/10/2021
+        MongoServerError: E11000 duplicate key error collection: db_contacts.contacts index: _id_ dup key: { _id: ObjectId('6174f83791dbf3480f3900c1') }
+        

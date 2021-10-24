@@ -1,8 +1,8 @@
 import { Schema } from 'mongoose';
 
-import { usersConnection } from './connection';
+import { contactsConnection } from './connection';
 
-const usersSchema = new Schema({
+const contactsSchema = new Schema({
     name: String,
     lastName: String,
     email:{
@@ -30,11 +30,7 @@ const usersSchema = new Schema({
         type: Date,
         default: Date.now,
     },
-    done: {
-        type: Boolean,
-        default: false,
-    },
 });
 
 //handler devuelve modelo
-export const users = usersConnection.model('users', usersSchema);
+export const contacts = contactsConnection.model('contacts', contactsSchema);

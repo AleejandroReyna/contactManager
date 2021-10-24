@@ -1,7 +1,7 @@
 import express from 'express';
-import usersRouter from './routes/users.router';
+import contactsRouter from './routes/contacts.router';
 
 let router = express.Router();
 
-router.use('/users', usersRouter);
+router.use('/contacts', contactsRouter);
 export default router;
